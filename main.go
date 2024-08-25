@@ -13,8 +13,30 @@ func main() {
 	a := app.New()
 	w := a.NewWindow("Dublet")
 
-	w.SetContent(widget.NewLabel("Hello World!"))
+	form := &widget.Form{
+		Items: []*widget.FormItem{
+			{Text: "Hello", Widget: widget.NewEntry()},
+			{Text: "Test", Widget: widget.NewButton("Click me", func() {
+				widget.NewLabel("Button clicked")
+			}),
+			},
+		}}
+
+	w.SetContent(form)
 	w.ShowAndRun()
+
+	// // Example usage of CompareFiles
+	// same, err := CompareFiles("path/to/file1", "path/to/file2")
+	// if err != nil {
+	// 	fmt.Printf("Error comparing files: %v\n", err)
+	// 	return
+	// }
+
+	// if same {
+	// 	fmt.Println("The files are the same.")
+	// } else {
+	// 	fmt.Println("The files are different.")
+	// }
 }
 
 // CompareFiles checks if two files are the same by comparing their sizes and CRC32 hashes.
