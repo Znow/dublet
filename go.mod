@@ -2,7 +2,10 @@ module dublet
 
 go 1.22.3
 
-require fyne.io/fyne/v2 v2.5.1
+require (
+	fyne.io/fyne/v2 v2.5.1
+	github.com/google/uuid v1.1.2
+)
 
 require (
 	fyne.io/systray v1.11.0 // indirect
